@@ -88,7 +88,7 @@ Where *some_parameter* is send by the *APP-NAME/urls.py* file, in the *urlpatter
 
 ## Write html
 
-HTML need to be written into *APP-NAME/templates/main/*. In here you can write every html you want to use.
+HTML need to be written into *APP-NAME/templates/APP-NAME/*. In here you can write every html you want to use.
 
 ### Specifications
 
