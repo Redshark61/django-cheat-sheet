@@ -79,7 +79,7 @@ class NAME_OF_THE_TABLE_2(models.Model):
     NAME_OF_THE_SECOND_FIELD = VALUE_OF_THE_SECOND_FIELD
 ```
 
-```python models.ForeignKey(NAME_OF_THE_TABLE_1, on_delete=models.CASCADE)``` means that the second table is linked with the first one, and if we delete the first one, we also delete this one
+```models.ForeignKey(NAME_OF_THE_TABLE_1, on_delete=models.CASCADE)``` means that the second table is linked with the first one, and if we delete the first one, we also delete this one
 
 For example, we want to create a db wich stores polls, so we want a table for questions, and another one for the answer :
 
