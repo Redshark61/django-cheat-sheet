@@ -34,8 +34,6 @@ Create the app wich will run the project
 py manage.py startapp APP-NAME
 ```
 
-APP-NAME is often _main_
-
 ## Miscellaneous
 
 ### Run the shell
