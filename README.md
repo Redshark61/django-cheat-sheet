@@ -164,7 +164,7 @@ def name_of_the_views(response, some_parameter):
     return render(response, "main/name_of_the_file.html", {"name_of_a_variable_in_html":the_var_itself}) # Where {} can hold variables you want to pass into you html file
 ```
 
-Where _some_parameter_ is send by the _APP-NAME/urls.py_ file, in the _urlpatterns_.
+Where *some_parameter* is send by the _APP-NAME/urls.py_ file, in the _urlpatterns_.
 
 ### Write html
 
