@@ -1,0 +1,13 @@
+<!-- prettier-ignore -->
+{% extends 'main/base.html' %}
+{% block title %}
+Create new list
+{% endblock title %}
+
+{% block content %}
+Create list
+<form action="/create/" method="post">
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit" name="save">Create new</button>
+</form>
+{% endblock content %}

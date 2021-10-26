@@ -1,17 +1,20 @@
-{% extends "main/base.html" %}
-{% block title %}
-View list
-{% endblock %}
-
-{% block content %}
+{% extends "main/base.html" %} {% block title %} View list {% endblock %} {% block content %}
 <h1>{{ls.name}}</h1>
-<ul>
-    {% for item in ls.item_set.all %}
-    {% if not item.complete %}
-    <li style="color: red;">{{item.text}} - INCOMPLETE</li>
-    {% else %}
-    <li style="color: green;">{{item.text}} - COMPLETE</li>
-    {% endif %}
-    {% endfor %}
-</ul>
+<form action="#" method="post">
+    {% csrf_token %}
+    <ul>
+        {% for item in ls.item_set.all %} {% if item.complete %}
+        <li style="color: green">
+            <input type="checkbox" name="c{{item.id}}" value="clicked" checked />{{item.text}}
+        </li>
+        {% else %}
+        <li style="color: red">
+            <input type="checkbox" name="c{{item.id}}" value="clicked" />{{item.text}}
+        </li>
+        {% endif %} {% endfor %}
+    </ul>
+    <button type="submit" name="save" value="save">Save</button>
+    <input type="text" name="new" />
+    <button type="submit" name="newItem" value="newItem">Add item</button>
+</form>
 {% endblock %}
