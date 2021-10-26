@@ -1,20 +1,30 @@
 {% extends "main/base.html" %} {% block title %} View list {% endblock %} {% block content %}
 <h1>{{ls.name}}</h1>
 <form action="#" method="post">
-    {% csrf_token %}
-    <ul>
-        {% for item in ls.item_set.all %} {% if item.complete %}
-        <li style="color: green">
-            <input type="checkbox" name="c{{item.id}}" value="clicked" checked />{{item.text}}
-        </li>
-        {% else %}
-        <li style="color: red">
-            <input type="checkbox" name="c{{item.id}}" value="clicked" />{{item.text}}
-        </li>
-        {% endif %} {% endfor %}
-    </ul>
-    <button type="submit" name="save" value="save">Save</button>
-    <input type="text" name="new" />
-    <button type="submit" name="newItem" value="newItem">Add item</button>
+    {% csrf_token %} {% for item in ls.item_set.all %}
+    <div class="input-group mb-3">
+        <div class="input-group-text">
+            <div class="input-group-prepend">
+                {% if item.complete %}
+                <input type="checkbox" name="c{{item.id}}" value="clicked" checked />
+                {% else %}
+                <input type="checkbox" name="c{{item.id}}" value="clicked" />
+                {% endif %}
+            </div>
+        </div>
+        <input type="text" value="{{item.text}}" class="form-control" />
+    </div>
+    {% endfor %}
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit" name="newItem" value="newItem" class="btn btn-success">
+                Add item
+            </button>
+        </div>
+        <input type="text" name="new" />
+    </div>
+
+    <button type="submit" name="save" value="save" class="btn btn-success">Save</button>
 </form>
 {% endblock %}

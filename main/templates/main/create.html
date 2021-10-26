@@ -1,13 +1,13 @@
-<!-- prettier-ignore -->
-{% extends 'main/base.html' %}
-{% block title %}
-Create new list
-{% endblock title %}
-
-{% block content %}
-Create list
-<form action="/create/" method="post">
-    {% csrf_token %} {{form.as_p}}
-    <button type="submit" name="save">Create new</button>
+<!--prettier-ignore-->
+{% extends 'main/base.html' %} {% block title %} Create new list {% endblock title %} {% block content %}
+<h3>Create list</h3>
+<form action="/create/" method="post" class="form-group">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit" name="save" class="btn btn-success">Create new</button>
+        </div>
+        {{form.name}}
+    </div>
 </form>
 {% endblock content %}
